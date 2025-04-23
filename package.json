@@ -1,12 +1,22 @@
 {
   "name": "cafe",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Welcome to the E-Commerce Web App project! This README provides an overview of the project structure, key features, and initial setup to help you get started.",
+  "main": "server.js",
   "scripts": {
+    "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mysql2": "^3.14.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
 }
