@@ -16,37 +16,7 @@ body {
     color: #2e2a25;
 }
 
-header {
-    background-color: #6b4f3d;
-    color: #ffffff;
-    padding: 1em 0;
-    /* text-align: center; */
-    display: flex;
-    flex-direction: row;
-}
-header a .logo_font {
-    font-family: 'Mini Banana', sans-serif;
-    font-size: 2em;
-    color: #ffffff;
-    text-decoration: none;
-    margin-left: 20px;
-}
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    border: solid 1px #6b4d;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: #ffffff;
-    text-decoration: none;
-}
 
 section {
     padding: 2em;
