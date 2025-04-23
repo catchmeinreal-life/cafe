@@ -1,0 +1,27 @@
+nav ul {
+    display: flex;
+    gap: 1rem;
+    list-style-type: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+    position: relative;
+}
+
+#cart-link {
+    display: flex;
+    align-items: center;
+}
+
+#cart-count {
+    background: red;
+    color: white;
+    font-size: 0.8rem;
+    border-radius: 50%;
+    padding: 0 6px;
+    margin-left: 4px;
+    line-height: 1.2;
+}
