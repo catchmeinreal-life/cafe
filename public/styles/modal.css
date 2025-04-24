@@ -1,0 +1,117 @@
+/* the modal (background) */
+.modal{
+    display: none; /* hidden by default*/
+    position: fixed; /* stay in place*/
+    z-index: 1; /* sit on top*/
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* enable scrool if needed*/
+    background-color: rgb(0,0,0); /*full back color*/
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 40px;
+}
+
+
+/* the close btn*/
+.close{
+    /*position it in the top right corner outside of the modal*/
+    position: absolute;
+    right: 80px;
+    top: 20px;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+/*close btn on hover*/
+.close:hover,
+.close:focus{
+    color: red;
+    cursor: pointer;
+}
+
+
+/* login .modal-content */
+
+
+#login{
+    /* max-width: 100vh; */
+    height: 100vh;
+    background-color: aliceblue;
+}
+
+.form-cont{
+    background-color: bisque;
+    max-width: 400px;
+    margin: 0% auto;
+    text-align: center;
+    padding: 40px 30px 10px 30px;
+    border-radius: 30px;
+}
+.form-cont>h1{
+    font-size: xx-large;
+    padding-bottom: 20px;
+}
+.form-cont .msg-info{
+    padding: 20px;
+}
+.form-cont .google-auth {
+    padding: 15px 0;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.form-cont .google-auth h3 a{
+    text-decoration: none;
+}
+
+.form-cont>h3{
+    margin: 15px 0;
+}
+
+.input-cont {
+    height: 60px;
+    margin: 16px 0;
+    background-color: rgb(229, 228, 228);
+    border-radius: 10px;
+}
+.input-cont>label{
+    padding-top: 10px;
+    padding-left: 14px;
+    text-align: left;
+    font-size: small;
+    display: block;
+}
+.input-cont>input{
+    width: 100%;
+    outline: none;
+    background: transparent;
+    border: none;
+    padding-left: 10px;
+}
+.input-cont>input:focus{
+    background: transparent;
+}
+.input-cont:hover{
+    border: solid 2px black;
+}
+
+
+.btn-cont .btn-sigIn{
+    padding: 15px 0;
+    font-weight: bold;
+    font-size: 1rem;
+    font-family: 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: none;
+}
+.btn-cont .btn-sigIn:hover{
+    border-radius: 15px;
+}
+
+.features {
+    margin-top: 15px;
+}

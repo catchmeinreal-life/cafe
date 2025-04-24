@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="styles/menu.css">
     <link rel="stylesheet" href="styles/cart.css">
 
+    <!-- modal login css -->
+     <link rel="stylesheet" href="styles/modal.css">
+
     <style>
        
 
@@ -36,7 +39,7 @@
                      <span id="cart-count">0</span>
                     </a>
                 </li>
-                <li><a href="#login">Sign-IN</a></li>
+                <li><button onclick="document.getElementById('id01').style.display='block'">login</button></li>
             </ul>
         </nav>
         <div id="cart-dropdown" class="cart-dropdown hidden">
@@ -45,6 +48,45 @@
             <p><span id="cart-total">0</span></p>
             <button id="checkout-button">Checkout</button>  
         </div>
+
+        <div id="id01" class="modal">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="close modal">&times;</span>
+    
+            <!-- modal content -->
+             <div class="form-cont">
+                <h1>Sign in to CaFe</h1>
+                <div class="msg-info"><span>unable to get profile info from google</span></div> <!--displaying messages-->
+                <div class="google-auth">
+                    <h3><a href="">Continue with Google</a></h3>
+                </div>
+                <h3>or</h3>
+                <form action="">
+                    <div class="input-cont">
+                        <label for="email">EMAIL</label>
+                        <input type="email" required name="email" autocomplete="off">
+                    </div>
+                    <div class="input-cont">
+                        <label for="password">PASSWORD</label>
+                        <input type="password" name="password" id="" autocomplete="off">
+                    </div>
+                    <div class="btn-cont">
+                        <button class="btn-sigIn">Log In</button>
+                    </div>
+                    <div class="features uniqueSignin">
+                        <a href="">use single sign on</a>
+                    </div>
+                    <div class="features reset-pswd">
+                        <a href="">reset password</a>
+                    </div>
+                    <div class="features create">
+                        <p>no Account?<a href="">create one</a></p>
+                    </div>
+                </form>
+            </div>
+    
+         </div>
+
+        
   
     </header>
     
@@ -78,5 +120,8 @@
     <script src="scripts/nav.js"></script>
     <script src="scripts/menu.js"></script>
     <script src="scripts/cart.js"></script>
+
+    <!-- modal js -->
+     <script src="scripts/modal.js"></script>
 </body>
 </html>
