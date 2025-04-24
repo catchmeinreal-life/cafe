@@ -15,3 +15,7 @@ document.addEventListener('click', (event) => {
         nav.classList.remove('show');
     }
 });
+
+
+// cart icon on click 
+
