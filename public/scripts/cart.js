@@ -29,6 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCartUI();
     } 
 
+
+    //increase item quantity in the cart
+    function incrementItem(id) {
+        const item = cart.find(item => item.id === id);
+        if (item) {
+            item.quantity++;
+            updateCartUI();
+        }
+    }
+
     // decrease item quantity in the cart
     function decrementItem(id) {
         const item = cart.find(item => item.id === id);
@@ -54,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             li.innerHTML = `
                 ${item.name} x ${item.quantity} - KSH ${item.price * item.quantity.toFixed(2)}
                 <button class="decrement-btn" data-id="${item.id}">-</button>
+                <button class="increment-btn" data-id="${item.id}">+</button>
                 <button class="remove-btn" data-id="${item.id}">x</button>
             `;
             cartItemsList.appendChild(li);
@@ -76,6 +87,10 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (e.target.classList.contains('decrement-btn')) {
             const id = e.target.dataset.id;
             decrementItem(id);
+        } else if (e.target.classList.contains('increment-btn')) {
+
+            const id = e.target.dataset.id;
+            incrementItem(id);
         } else if (e.target.classList.contains('add-to-cart')) {
             const id = e.target.dataset.id;
             const name = e.target.dataset.name;
@@ -90,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('click', (e) => {
         setTimeout(() => {
             const isInsideCart = cartDropdown.contains(e.target) || cartLink.contains(e.target);
-            const isControlButton = e.target.classList.contains('decrement-btn') || e.target.classList.contains('remove-btn');
+            const isControlButton = e.target.classList.contains('decrement-btn')|| e.target.classList.contains('increment-btn') || e.target.classList.contains('remove-btn');
     
             if (!isInsideCart && !isControlButton) {
                 cartDropdown.classList.add('hidden');
@@ -99,15 +114,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
 
-    // Example: Trigger this function when an "Add to Cart" button is clicked
-    // document.addEventListener('click', (e) => {
-    //     if (e.target.classList.contains('add-to-cart')) {
-    //         const id = e.target.dataset.id;
-    //         const name = e.target.dataset.name;
-    //         const price = parseFloat(e.target.dataset.price);
-
-    //         addToCart(name, price, id);
-    //     }
-    // });
 
 });
