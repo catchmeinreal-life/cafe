@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     const res = await fetch('/products');
     const products = await res.json();
+    console.log(products); // Log the products to the console for debugging
 
     productList.innerHTML = ''; // Clear default content
 

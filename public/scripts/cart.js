@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             // else, add new item to the cart with quantity 1
             cart.push({ id, name: itemName, price, quantity: 1 });
+            // console.log(cart);
         }
         updateCartUI();
     }
