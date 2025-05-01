@@ -9,6 +9,7 @@ const app = express();
 import conn from './database/db.js'
 //importing the routes
 import productsRoute from './routes/products.js';
+import loginRoute from './routes/login.js'
 
 // serving static files
 import path from 'path';
@@ -20,12 +21,10 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.get('/login', (req, res) => {
-  res.send('login page');
-})
 
 // use routes
 app.use('/products', productsRoute);
+app.use('/', loginRoute);
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
