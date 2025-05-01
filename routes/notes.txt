@@ -1,3 +1,7 @@
+Create Logic for REST API
+
+5.1 Register Route>>>>>>>
+
 router.post('/sign-up', userMiddleware.validateRegister, (req, res, next) =>{
 
     /*
@@ -5,4 +9,15 @@ router.post('/sign-up', userMiddleware.validateRegister, (req, res, next) =>{
     */
     
     res.send('hey there stranger..sign up');
+})
+
+5.2 Login Route
+
+router.post('/login', (req, res, next) => {
+    /*
+    *Login system to log-in users who already registered. here the matching database entry is searched for using the user name.
+    *Then the entered password is checked in aganist the encrypted passworf from the database using jwt.compare(). 
+    *A short Sql query sets the ast login date/time to the current value
+    */
+    res.send('wecome back.. sign in')
 })
