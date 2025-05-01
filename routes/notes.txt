@@ -1,0 +1,8 @@
+router.post('/sign-up', userMiddleware.validateRegister, (req, res, next) =>{
+
+    /*
+    *to add a new user to the database, we must check whether the user name does not yet exist. if the user exists, an error message is displayed. If the user does not yet exist, the password entered is hashed using our bcryptjs module and then all data is entered into the database.
+    */
+    
+    res.send('hey there stranger..sign up');
+})
