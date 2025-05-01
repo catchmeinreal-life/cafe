@@ -20,6 +20,10 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+app.get('/login', (req, res) => {
+  res.send('login page');
+})
+
 // use routes
 app.use('/products', productsRoute);
 
