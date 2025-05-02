@@ -13,7 +13,9 @@
     padding-top: 40px;
 }
 
-
+.active-modal{  /*toggle*/
+    display: block;
+}
 /* the close btn*/
 .close{
     /*position it in the top right corner outside of the modal*/
@@ -36,11 +38,11 @@
 /* login .modal-content */
 
 
-#login{
+/* #login{ */
     /* max-width: 100vh; */
-    height: 100vh;
-    background-color: aliceblue;
-}
+    /* height: 100vh; */
+    /* background-color: aliceblue; */
+/* } */
 
 .form-cont{
     background-color: bisque;
@@ -50,7 +52,8 @@
     padding: 40px 30px 10px 30px;
     border-radius: 30px;
 }
-.form-cont>h1{
+.form-cont > h1{
+    color: #6b4f3d;
     font-size: xx-large;
     padding-bottom: 20px;
 }
@@ -62,11 +65,11 @@
     border: 1px solid black;
     border-radius: 10px;
 }
-.form-cont .google-auth h3 a{
+.form-cont .google-auth > h3 > a{
     text-decoration: none;
 }
 
-.form-cont>h3{
+.form-cont > h3{
     margin: 15px 0;
 }
 
@@ -76,28 +79,28 @@
     background-color: rgb(229, 228, 228);
     border-radius: 10px;
 }
-.input-cont>label{
+.input-cont > label{
     padding-top: 10px;
     padding-left: 14px;
     text-align: left;
     font-size: small;
     display: block;
 }
-.input-cont>input{
+.input-cont > input{
     width: 100%;
     outline: none;
     background: transparent;
     border: none;
     padding-left: 10px;
 }
-.input-cont>input:focus{
+.input-cont > input:focus{
     background: transparent;
 }
 .input-cont:hover{
     border: solid 2px black;
 }
 
-
+.btn-cont .btn-signIn,
 .btn-cont .btn-sigIn{
     padding: 15px 0;
     font-weight: bold;
@@ -108,10 +111,26 @@
     color: white;
     border: none;
 }
+.btn-cont .btn-sigIn:hover,
 .btn-cont .btn-sigIn:hover{
     border-radius: 15px;
 }
 
 .features {
     margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+    .form-cont {
+      max-width: 90%;
+      padding: 20px 15px 5px 15px;
+    }
+    
+    .close {
+      right: 20px;
+    }
+    
+    section {
+      padding: 20px;
+    }
 }

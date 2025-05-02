@@ -39,7 +39,10 @@
                      <span id="cart-count">0</span>
                     </a>
                 </li>
-                <li><button onclick="document.getElementById('id01').style.display='block'">login</button></li>
+                <!-- login button -->
+                <li>
+                    <button onclick="showLoginForm()">login</button>
+                </li>
             </ul>
         </nav>
         <div id="cart-dropdown" class="cart-dropdown hidden">
@@ -49,18 +52,25 @@
             <button id="checkout-button">Checkout</button>  
         </div>
 
+        <!-- login form -->
         <div id="id01" class="modal">
             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="close modal">&times;</span>
     
             <!-- modal content -->
              <div class="form-cont">
                 <h1>Sign in to CaFe</h1>
-                <div class="msg-info"><span>unable to get profile info from google</span></div> <!--displaying messages-->
+
+                <div class="msg-info">
+                    <span>unable to get profile info from google</span>
+                </div> <!--displaying messages-->
+
                 <div class="google-auth">
-                    <h3><a href="">Continue with Google</a></h3>
+                    <h3><a href="#">Continue with Google</a></h3>
                 </div>
+
                 <h3>or</h3>
-                <form action="">
+
+                <form action="" id="logiForm">
                     <div class="input-cont">
                         <label for="email">EMAIL</label>
                         <input type="email" required name="email" autocomplete="off">
@@ -79,12 +89,56 @@
                         <a href="">reset password</a>
                     </div>
                     <div class="features create">
-                        <p>no Account?<a href="">create one</a></p>
+                        <p>no Account?<a href="#" onclick="showSignUpForm()">create one</a></p>
                     </div>
                 </form>
             </div>
     
          </div>
+
+         <!-- Sign up Form Modal  -->
+        <div id="id02" class="modal">
+            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+            <div class="form-cont">
+                <h1>Create Your CaFe Account</h1>
+
+                <div class="msg-info">
+                <span>Sign up with Google or fill in the form below</span>
+                </div>
+
+                <div class="google-auth">
+                <h3><a href="#">Continue with Google</a></h3>
+                </div>
+
+                <h3>or</h3>
+
+                <form action="" id="signupForm">
+                    <div class="input-cont">
+                        <label htmlFor="username">FULL NAME</label>
+                        <input type="text" name="username" id="username" required autoComplete="off" />
+                    </div>
+                    <div class="input-cont">
+                        <label htmlFor="email">EMAIL</label>
+                        <input type="email" name="email" id="email" required autoComplete="off" />
+                    </div>
+                    <div class="input-cont">
+                        <label htmlFor="password">PASSWORD</label>
+                        <input type="password" name="password" id="password" required autoComplete="off" />
+                    </div>
+                    <div class="input-cont">
+                        <label htmlFor="password_repeat">CONFIRM PASSWORD</label>
+                        <input type="password" name="password_repeat" id="password_repeat" required autoComplete="off" />
+                    </div>
+                    <div class="btn-cont">
+                        <button type="submit" className="btn-signUp">Sign Up</button>
+                    </div>
+                    <div class="features loginLink">
+                        <p>Already have an account? <a href="#" onClick="showLoginForm()">Log in</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
 
         
   
