@@ -41,6 +41,7 @@
                 </li>
                 <!-- login button -->
                 <li>
+                    <!-- <a href="./auth.html">login</a> -->
                     <button onclick="showLoginForm()">login</button>
                 </li>
             </ul>
@@ -54,7 +55,7 @@
 
         <!-- login form -->
         <div id="id01" class="modal">
-            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="close modal">&times;</span>
+            <span onclick="document.getElementById('id01').classList.remove('active-modal')" class="close" title="close modal">&times;</span>
     
             <!-- modal content -->
              <div class="form-cont">
@@ -70,7 +71,7 @@
 
                 <h3>or</h3>
 
-                <form action="" id="logiForm">
+                <form action="" id="loginForm">
                     <div class="input-cont">
                         <label for="email">EMAIL</label>
                         <input type="email" required name="email" autocomplete="off">
@@ -98,7 +99,7 @@
 
          <!-- Sign up Form Modal  -->
         <div id="id02" class="modal">
-            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <span onclick="document.getElementById('id02').classList.remove('active-modal')" class="close" title="Close Modal">&times;</span>
 
             <div class="form-cont">
                 <h1>Create Your CaFe Account</h1>
