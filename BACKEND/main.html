@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="btn">enter</button>
+    <script>
+        let btn = document.getElementById('btn');
+        btn.onclick = ()=> {
+            let url = 'https://login.yahoo.com/?done=https%3A%2F%2Fau.finance.yahoo.com%2Fquote%2FAUDJPY%3DX%2F&intl=au&lang=en-AU&activity=dock-portfolio&pspid=1183800001&src=finance';
+            let response =  fetch(url);
+            if (response.ok){
+                let json =  response.json();
+            } else {
+                console.log(`HTTP EROR : ${response.status}`)
+            }
+        }
+
+    </script>
+</body>
+</html>

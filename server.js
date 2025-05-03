@@ -18,6 +18,8 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+app.use(express.urlencoded({ extended: true })); // For form submissions
+
 //serve static files from the public directory
 app.use(express.json()) //parse JSON-formatted request
 app.use(cors())

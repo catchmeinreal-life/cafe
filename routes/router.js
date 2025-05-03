@@ -12,21 +12,22 @@ import userMiddleware from '../middleware/users.js';
 
 
 // 
-router.post('/sign-up', userMiddleware.validateRegister, (req, res, next) =>{
+router.post('/sign-up', (req, res, next) =>{
+    console.log(req.body); 
     conn.query(
         `SELECT user_id FROM users WHERE LOWER(username) = LOWER(?);`,
         [req.body.username],
         (err, result) =>{
             if(result && result.length){
                 //error
-                return res.status(409).send({
+                return res.status(409).json({
                     message : 'username aready in use!'
                 });
             } else {
                 // username not in use
                 bcrypt.hash(req.body.password, 10, (err, hash)=>{
                     if(err){
-                        return res.status(500).send({
+                        return res.status(500).json({
                             message : err,
                         });
                     } else {
@@ -35,11 +36,11 @@ router.post('/sign-up', userMiddleware.validateRegister, (req, res, next) =>{
                             [uuidv4(), req.body.username,hash, req.body.email,],
                             (err,result)=>{
                                 if(err){
-                                    return res.status(400).send({
+                                    return res.status(400).json({
                                         message : err,
                                     });
                                 }
-                                return res.status(201).send({
+                                return res.status(201).json({
                                     message : 'Registered!',
                                 });
                             }
@@ -57,12 +58,14 @@ router.post('/login', (req, res, next) => {
         [req.body.username],
         (err, result) =>{
             if(err){
-                return res.status(400).send({
-                    message : err,
+                // log the err
+                console.error('Database error:', err);
+                return res.status(500).json({
+                    message : err, //'internal server error'
                 });
             }
             if(!result.length){
-                return res.status(400).send({
+                return res.status(400).json({
                     message : 'Username or password incorrect',
                 });
             }
@@ -71,7 +74,7 @@ router.post('/login', (req, res, next) => {
                 req.body.password, result[0]['password'],
                 (bErr, bResult)=>{
                     if(bErr){
-                        return res.status(400).send({
+                        return res.status(400).json({
                             message : 'Username or password incorrect!',
                         });
                     }
@@ -87,13 +90,13 @@ router.post('/login', (req, res, next) => {
                         );
                         conn.query('UPDATE users SET last_login = now() WHERE user_id = ?;',
                         [result[0].user_id]);
-                        return res.status(200).send({
+                        return res.status(200).json({
                             message : 'Logged in!',
                             token,
                             user: result[0],
                         });
                     }
-                    return res.status(400).send({
+                    return res.status(400).json({
                         message : 'Username or password incorrect!',
                     });
                 }
