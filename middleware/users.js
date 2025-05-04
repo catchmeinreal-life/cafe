@@ -4,6 +4,7 @@ export default {
     validateRegister: (req, res, next) => {
         //username min length < 3
         if(!req.body.username || req.body.username.length < 3) {
+            console.log(1);
             return res.status(400).send({
                 message : 'Enter username with min. 3 chars'
             });
@@ -24,6 +25,6 @@ export default {
         next();
     }
 
-}
+};
 
 // export default validateRegister;

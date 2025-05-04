@@ -19,9 +19,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 //serve static files from the public directory
-app.use(express.json()) //parse JSON-formatted request
 app.use(cors())
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(express.json()); // for parsing application/json
+app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
 
 
 
