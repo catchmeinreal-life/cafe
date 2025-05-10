@@ -13,48 +13,42 @@ import userMiddleware from '../middleware/users.js';
 
 // 
 router.post('/sign-up', userMiddleware.validateRegister, (req, res, next) =>{
+
     console.log(req.body);
-    // conn.query(
-    //     `SELECT user_id FROM users WHERE LOWER(username) = LOWER(?);`,
-    //     [req.body.username],
-    //     (err, result) =>{
-    //         if (err) {
-    //             return res.status(500).send({ message: err });
-    //           }
-    //         if(result && result.length){
-    //             //error
-    //             return res.status(409).send({
-    //                 message : 'username aready in use!'
-    //             });
-    //         } else {
+    conn.query(`SELECT user_id FROM users WHERE LOWER(username) = LOWER(?);`,[req.body.username],(err, result) =>{
+            if (err) {return res.status(500).send({ message: err });}
+            if(result && result.length){
+                //error
+                return res.status(409).send({message : 'username aready in use!'});
+            } else {
                 // username not in use
-                    bcrypt.hash(req.body.password, 10, (err, hash)=>{
-                        if(err){
-                            return res.status(500).send({
-                                message : err,
-                            });
-                        } else {
-                            conn.query(
-                                'INSERT INTO users (user_id, username, password, email, created_at) VALUES (?,?,?,?, now());',
-                                [uuidv4(), req.body.username,hash, req.body.email,],
-                                (err,result)=>{
-                                    if(err){
-                                        return res.status(400).send({
-                                            message : err,
-                                        });
-                                    }
-                                    return res.status(201).send({
-                                        message : 'Registered!',
+                bcrypt.hash(req.body.password, 10, (err, hash)=>{
+                    if(err){
+                        return res.status(500).send({
+                            message : err,
+                        });
+                    } else {
+                        conn.query(
+                            'INSERT INTO users (user_id, username, password, email, created_at) VALUES (?,?,?,?, now());',
+                            [uuidv4(), req.body.username,hash, req.body.email,],
+                            (err,result)=>{
+                                if(err){
+                                    return res.status(400).send({
+                                        message : err,
                                     });
                                 }
-                            );
-                        }
-                    });
-            });
-//             }
-//         }
-//     );
-// });
+                                return res.status(201).send({
+                                    message : 'Registered!',
+                                });
+                            }
+                        );
+                    }
+                 }
+            );
+        }
+    });
+});
+        
 
 router.post('/login', (req, res, next) => {
     conn.query(
