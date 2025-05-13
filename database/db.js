@@ -22,4 +22,12 @@ try {
     console.error('Error connecting to the database:', err.message);
 }
 
+// try {  //adding elements to the table
+//     const sql = `INSERT INTO products (name, description, price) VALUES("MOCHA", "brewed", 30.4) `;
+//     conn.query(sql);
+//     console.log("table updated");
+// } catch (error) {
+//     console.log(error)
+// }
+
 export default conn;

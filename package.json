@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha SinonMock/*.test.js"
   },
   "type": "module",
   "keywords": [],
@@ -18,9 +18,15 @@
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.14.0",
+    "request": "^2.88.2",
     "uuid": "^11.1.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "@types/chai": "^5.2.2",
+    "@types/sinon": "^17.0.4",
+    "chai": "^5.2.0",
+    "mocha": "^11.2.2",
+    "nodemon": "^3.1.10",
+    "sinon": "^20.0.0"
   }
 }

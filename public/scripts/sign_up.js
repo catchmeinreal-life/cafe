@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         let data = {
             username, email, password, password_repeat
         }
-        console.log(data);
+
 
         try {
             const response = await fetch("http://localhost:5000/api/sign-up", {
@@ -38,8 +38,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
             console.error("Signup failed:", err);
             alert("Signup failed: " + err.message);
         }
-    })
-})
+    });
+});
 
 
 // let signIn = document.getElementById('signupForm');

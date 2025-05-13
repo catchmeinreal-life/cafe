@@ -12,41 +12,36 @@ import userMiddleware from '../middleware/users.js';
 
 
 // 
-router.post('/sign-up', userMiddleware.validateRegister, (req, res, next) =>{
+router.post('/sign-up', userMiddleware.validateRegister, async (req, res) => {
+    const { username, email, password } = req.body;
 
-    console.log(req.body);
-    conn.query(`SELECT user_id FROM users WHERE LOWER(username) = LOWER(?);`,[req.body.username],(err, result) =>{
-            if (err) {return res.status(500).send({ message: err });}
-            if(result && result.length){
-                //error
-                return res.status(409).send({message : 'username aready in use!'});
-            } else {
-                // username not in use
-                bcrypt.hash(req.body.password, 10, (err, hash)=>{
-                    if(err){
-                        return res.status(500).send({
-                            message : err,
-                        });
-                    } else {
-                        conn.query(
-                            'INSERT INTO users (user_id, username, password, email, created_at) VALUES (?,?,?,?, now());',
-                            [uuidv4(), req.body.username,hash, req.body.email,],
-                            (err,result)=>{
-                                if(err){
-                                    return res.status(400).send({
-                                        message : err,
-                                    });
-                                }
-                                return res.status(201).send({
-                                    message : 'Registered!',
-                                });
-                            }
-                        );
-                    }
-                 }
-            );
+    try {
+        // Check if user exists
+        const [existingUsers] = await conn.query(
+            `SELECT user_id FROM users WHERE LOWER(username) = LOWER(?)`,
+            [username]
+        );
+
+        if (existingUsers.length > 0) {
+            return res.status(409).json({ message: 'Username already in use!' });
         }
-    });
+
+        // Hash the password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Insert the user
+        const userId = uuidv4();
+        await conn.query(
+            `INSERT INTO users (user_id, username, password, email, created_at) VALUES (?, ?, ?, ?, NOW())`,
+            [userId, username, hashedPassword, email]
+        );
+
+        console.log(`User ${username} was added`);
+        res.status(201).json({ message: 'User added!' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
 });
         
 
