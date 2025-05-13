@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cartDropdown.classList.toggle('hidden'); //hidden
     });
 
+    // listen for any click events on the DOM
     document.addEventListener('click', (e) => {
         if (e.target.classList.contains('remove-btn')) {
             const id = e.target.dataset.id;
