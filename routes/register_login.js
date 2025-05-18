@@ -50,55 +50,48 @@ router.post('/sign-up', userMiddleware.validateRegister, async (req, res) => {
     }
 });
         
-router.post('/login', (req, res, next) => {
-    conn.query(
-        'SELECT * FROM users WHERE username = ?;',
-        [req.body.username],
-        (err, result) =>{
-            if(err){
-                return res.status(400).send({
-                    message : err,
-                });
-            }
-            if(!result.length){
-                return res.status(400).send({
-                    message : 'Username or password incorrect',
-                });
-            }
+router.post('/login', async (req, res) => {
+    /**interact with the database */
+    console.log(req.body);
 
-            bcrypt.compare(
-                req.body.password, result[0]['password'],
-                (bErr, bResult)=>{
-                    if(bErr){
-                        return res.status(400).send({
-                            message : 'Username or password incorrect!',
-                        });
-                    }
-                    if(bResult){
-                        //password match
-                        const token = jwt.sign(
-                            {
-                                username: result[0].username,
-                                userId: result[0].user_id,
-                            },
-                            process.env.SECRETKEY,
-                            { expiresIn: '7d'}
-                        );
-                        conn.query('UPDATE users SET last_login = now() WHERE user_id = ?;',
-                        [result[0].user_id]);
-                        return res.status(200).send({
-                            message : 'Logged in!',
-                            token,
-                            user: result[0],
-                        });
-                    }
-                    return res.status(400).send({
-                        message : 'Username or password incorrect!',
-                    });
-                }
-            );
+    try {
+        const [rows] = await conn.query(
+            'SELECT * FROM users WHERE email = ?', [req.body.email]
+        );
+        console.log(rows[0]);
+        if (rows.length === 0) { //user not found
+            res.status(400).json({message : 'Invalid credentials'});
         }
-    );
+
+        const user = rows[0];  //user object
+        const passwordMatch = await bcrypt.compare(req.body.password, user.password); //boolean
+        console.log(passwordMatch)
+        
+
+        if (!passwordMatch) {
+            return res.status(400).json({message : 'invalid password'})
+        }
+        
+        const token = jwt.sign({
+            userId: user.user_id,
+            username : user.username,
+        }, process.env.SECRETKEY, { expiresIn : '1hr'});
+
+        await conn.query('UPDATE users SET last_login = NOW() WHERE user_id = ?', [user.user_id]);
+
+        const { user_id, username, email, last_login } = user;
+
+        return res.status(200).send({
+            message : 'Logged in!',
+            token,
+            user : { user_id, username, email, last_login}
+        })
+
+
+    } catch (error) {
+        console.log('error occured: ' + error);  //querry error
+    }
+
 });
 
 // authenticated pages

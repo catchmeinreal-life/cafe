@@ -1,3 +1,14 @@
+// import {showLoginForm} from './modal.js'
+function showLogin() {
+    const signUpModal = document.getElementById("id02"); //sign-up modal
+    const loginModal = document.getElementById("id01"); //login modal
+
+    if (signUpModal && loginModal){
+        signUpModal.classList.remove("active-modal"); //hide sign-up
+        loginModal.classList.add("active-modal"); //show login
+    }   
+}
+
 document.addEventListener("DOMContentLoaded", ()=>{
     const signupForm = document.getElementById("signupForm");
 
@@ -27,10 +38,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
             const result = await response.json();
 
-            if (response.ok) {
+            if (response.ok) {  //show the login modal
                 alert(result.message);
-
-                window.location.href = '/api/main';  //redirect on succesfull signup
+                showLogin();  // show login modal
+                // window.location.href = '/api/main';  //redirect on succesfull signup
             } else {
 
                 throw new Error(result.message || "Unknown error");
@@ -45,16 +56,3 @@ document.addEventListener("DOMContentLoaded", ()=>{
         }
     });
 });
-
-
-// let signIn = document.getElementById('signupForm');
-
-// signIn.onsubmit = async (e) => {
-//     e.preventDefaut();
-//     let response = await fetch('/api/sign-up',{
-//         method : 'POST',
-//         body : new FormData(data)
-//     });
-//     let result = await response.json();
-//     alert(result.message);
-// }
