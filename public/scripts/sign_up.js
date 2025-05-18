@@ -21,20 +21,25 @@ document.addEventListener("DOMContentLoaded", ()=>{
             const response = await fetch("http://localhost:5000/api/sign-up", {
 
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
+                headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(data)
              });
 
             const result = await response.json();
 
-            if (!response.ok) {
+            if (response.ok) {
+                alert(result.message);
+
+                window.location.href = '/api/main';  //redirect on succesfull signup
+            } else {
+
                 throw new Error(result.message || "Unknown error");
             }
 
-            alert(result.message);
-        } catch (err) {
+        } catch (err) {  
+            /**error messages from the api route
+             * Sign-up failed: >> notify via msg
+             */
             console.error("Signup failed:", err);
             alert("Signup failed: " + err.message);
         }
