@@ -44,7 +44,6 @@ router.post('/sign-up', userMiddleware.validateRegister, async (req, res) => {
     }
 });
         
-
 router.post('/login', (req, res, next) => {
     conn.query(
         'SELECT * FROM users WHERE username = ?;',

@@ -28,6 +28,7 @@
 
 #product-list li:hover {
     transform: translateY(-5px);
+    border:1px solid salmon;
 }
 #product-list li h3 {
     margin: 0;

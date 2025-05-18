@@ -2,7 +2,13 @@
 Welcome to the E-Commerce Web App project! This README provides an overview of the project structure, key features, and initial setup to help you get started.
 
 ## 🚀 Project Overview
-This project is an e-commerce web application designed to showcase products, enable user interaction, and support secure online transactions. The primary goal is to create a scalable, user-friendly platform for buyers and sellers.
+This project is an e-commerce web application designed to:
+>>  showcase products,
+>>  enable user interaction,
+and 
+>>  support secure online transactions.
+
+# The primary goal is to create a scalable, user-friendly platform for buyers and sellers.
 
 ## 🎯 Key Features
 # Product Listings:
