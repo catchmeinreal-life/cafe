@@ -1,6 +1,12 @@
 import express from 'express';
 const router = express.Router();
 
+// serving static files
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 import bcrypt from 'bcrypt';
 // import uuid from 'uuid';
 import { v4 as uuidv4 } from 'uuid';
@@ -96,10 +102,8 @@ router.post('/login', (req, res, next) => {
 });
 
 // authenticated pages
-router.get('/profile', (req, res)=>{
-    res.json({
-        message : "hello",
-    })
-})
+router.get('/main', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public', 'main.html'));
+});
 
 export default router;

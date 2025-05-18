@@ -10,7 +10,7 @@ const app = express();
 import conn from './database/db.js'
 //importing the routes
 import productsRoute from './routes/products.js';
-import router from './routes/router.js'
+import registration from './routes/register_login.js'
 
 // serving static files
 import path from 'path';
@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 
 // use routes
 app.use('/products', productsRoute);
-app.use('/api', router);  //
+app.use('/api', registration);
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);

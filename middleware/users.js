@@ -1,5 +1,7 @@
 import jwt from 'jsonwebtoken';
 
+/**validate form inputs */
+
 export default {
     validateRegister: (req, res, next) => {
         //username min length < 3
