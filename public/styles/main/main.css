@@ -104,3 +104,9 @@ header > .profile > span {
     font-size: 13px;
     font-weight: 500;
 }
+
+/* section css */
+section{
+    border: solid 1px brown;
+    padding: 4.5rem 0 1.5rem
+}

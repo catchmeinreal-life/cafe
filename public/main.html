@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="./styles/main/main.css">
 
     <!-- box icons -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <!-- landing page for user logged in. -->
 <body>
@@ -38,5 +41,55 @@
         </div>
 
     </header>
+    <!-- home section -->
+    <section class="home swiper" id="home">
+
+        <div class="swiper-wrapper">
+
+            <!-- Slide 1 -->
+            <div class="swiper-slide container">
+
+                <div class="home-text">
+                    <span>We are delicacy</span>
+                    <h1>Choose delicacy <br> the best healthy <br> chicken salad</h1>
+                    <a href="#" class="btn">Shop Now<i class='bx bx-right-arrow-alt'></i></a> <!-- bx-tada -->
+                </div>
+                <img src="./images/main/home1.jpg" alt="home page slide 1">
+
+            </div>
+            <!-- Slide 2 -->
+            <div class="swiper-slide container">
+
+                <div class="home-text">
+                    <span>We are delicacy</span>
+                    <h1>Choose delicacy <br> the best healthy <br> chicken salad</h1>
+                    <a href="#" class="btn">Shop Now<i class='bx bx-right-arrow-alt'></i></a> <!-- bx-tada -->
+                </div>
+                <img src="./images/main/home2.jpg" alt="home page slide 1">
+
+            </div>
+            <!-- Slide 3-->
+            <div class="swiper-slide container">
+
+                <div class="home-text">
+                    <span>We are delicacy</span>
+                    <h1>Choose delicacy <br> the best healthy <br> chicken salad</h1>
+                    <a href="#" class="btn">Shop Now<i class='bx bx-right-arrow-alt'></i></a> <!-- bx-tada -->
+                </div>
+                <img src="./images/main/home3.jpg" alt="home page slide 1">
+
+            </div>
+
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div> <!--remove this-->
+        
+    </section>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- js link -->
+     <script src="./scripts/main/main.js"></script>
 </body>
 </html>
