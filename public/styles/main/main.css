@@ -364,3 +364,24 @@ section{
     padding: 4px 18px;
     clip-path: polygon(0% 0%, 100% 0%, 73.2% 51.8%, 100% 100%, 0.1% 100%, 0% 50%);
 }
+
+/* about css */
+.about{
+    max-width: 968px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(21rem, auto));
+    gap: 1.5rem;
+    border: 1px solid saddlebrown;  /*remove*/
+}
+.about-text{
+    border: 1px solid saddlebrown;  /*remove*/ 
+}
+.about-text span{
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--green-color);
+}
+.about-text p{
+    margin: 0.5rem 0 1rem;
+}
