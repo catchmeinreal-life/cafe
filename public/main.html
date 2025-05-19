@@ -3,9 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Fruits and Vegetables</title>
+
+    <!-- local css  -->
+    <link rel="stylesheet" href="./styles/main/main.css">
+
+    <!-- box icons -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
+<!-- landing page for user logged in. -->
 <body>
-   <h1>login was success</h1>
+   
+    <!-- navbar -->
+    <header>
+        <a href="#" class="logo"><i class='bx bx-basket'></i>Delicacy</a>  <!--bx-tada  >>animate-->
+        <!-- menu icon -->
+
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <!-- nav list -->
+        <ul class="navbar">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#categories" >Categories</a></li>
+        <li><a href="#products" >Products</a></li>
+        <li><a href="#about" >About</a></li>
+        <li><a href="#customers" >Customers</a></li>
+        </ul>
+
+        <!-- profile -->
+        <!--retrieve information from database-->
+        <div class="profile">
+            <img src="./images/main/profile.jpg" alt="profile image">
+            <span>Eric Matutu</span>
+            <i class="bx bx-caret-down"></i>
+        </div>
+
+    </header>
 </body>
 </html>
