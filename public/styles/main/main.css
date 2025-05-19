@@ -107,6 +107,95 @@ header > .profile > span {
 
 /* section css */
 section{
-    border: solid 1px brown;
+    /* border: solid 1px brown; */
     padding: 4.5rem 0 1.5rem
+}
+
+.swiper-slide.container{
+    background-color: #f75f1d;
+    display: flex;
+    align-items: center;
+    /* border: solid 1px brown; */
+    position: relative;
+    width: 100%;
+    min-height: 640px;
+    align-items: center;
+
+    /* background: url(../../images/main/profile.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    overflow: hidden;
+}
+.swiper-slide.container .home-text{
+    border: solid 1px rgb(240, 22, 22);
+    padding:0 150px;
+}
+
+.swiper-slide.container img{
+    display: inline-block;
+    border: solid 1px rgb(231, 231, 231);
+    width: 400px;
+    position: absolute;
+    bottom: 50px;   /*animation transition*/
+    right: 200px;
+}
+
+.home-text span{
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--green-color);
+}
+
+.home-text h1{
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.btn{
+    border: 1px solid seashell;
+    padding: 0.6rem 1rem;
+    background: var(--green-color);
+    color: var(--bg-color);
+    font-weight: 400;
+    border-radius: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 0.5rem;
+    max-width: 160px;  
+}
+.btn .bx{
+    padding: 4px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    border-radius: 1rem;
+    font-size: 20px;
+    margin: auto;
+}
+.btn:hover{
+    background: var(--light-orange-color);
+    transition: 0.2s ease;
+}
+
+.swiper-button-next {
+    background: url(../../images/main/right-arrow.png);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    margin-right: 20px;
+}
+.swiper-button-next::after{
+    display: none;
+}
+.swiper-button-prev {
+    background: url(../../images/main/left-arrow.png);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    margin-left: 20px;
+}
+.swiper-button-prev::after{
+    display: none;
 }
