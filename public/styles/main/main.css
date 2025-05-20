@@ -548,3 +548,153 @@ section{
     text-align: center;
     padding: 20px;
 }
+/* making it responsive */
+@media (max-width: 1080px){
+    header {
+        padding: 1px 60px;
+    }
+    .home-text{
+        padding: 0 100px;
+    }
+    .swiper-slide.container img {  /*the swiper images*/
+        right: 100px;
+    }
+}
+/* add another here */
+@media (max-width: 991px){
+    header {
+        padding: 1px 4%;
+    }
+    section {
+        padding: 50px 4%;
+    }
+    .home-text h1{
+        font-size: 2rem;
+    }
+    /* .swiper-slide.container img {  the swiper images */
+        /* right: 100px; */
+    /* } */
+    .swiper-button-next,
+    .swiper-button-prev {
+        margin: 0;
+    }
+}
+
+@media (max-width: 904px) {
+    header{
+        padding: 12px 4%;
+    }
+    header #menu-icon{
+        display: initial;
+    }
+
+    header .navbar{
+        position: absolute;
+        top: -570px;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        background: var(--bg-color);
+        box-shadow: 4px 4px 0 4px rgb(14 5554 / 15%);
+        transition: 0.2s all linear;
+        text-align: left;
+    }
+    header .navbar li a {
+        padding: 0.1rem;
+        margin: 0.1rem;
+        display: block;
+    }
+    header .navbar li a:hover,
+    header .navbar li .active{
+        border-radius: 0.5rem;
+        color: var(--bg-color);
+    }
+    .navbar.active{
+        top: 100%;
+    }
+    .home-text h1{
+        font-size: 1.7rem;
+    }
+    .swiper-slide.container img {
+        width: 390px;
+    }
+    .btn{
+        padding: 0.6rem 1.2rem;
+    }
+    .products-container{
+        grid-template-columns: repeat(auto-fit, minmax(244px, auto));
+    }
+}
+
+@media (max-width: 830px){
+    .swiper-slide.container img{
+        right: 20px;
+    }
+    .heading h1{
+        font-size: 1.2rem;
+    }
+    .about{
+        grid-template-columns: repeat(auto-fit, minmax(20rem, auto));
+    }
+    .about img{
+        order: 2;  /*read on this */
+    }
+    .about-text{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .btn {
+        max-width: 164px;
+    }
+    .customers h2{
+        font-size: 1.2rem;
+    }
+}
+@media (max-width: 765px){
+    .swiper-slide.container img{
+        right: 5px;
+        width: 370px;
+    }
+}
+@media (max-width: 700px){
+    .swiper-slide.container img{
+        right: 0px;
+        width: 340px;
+        /* height: 222px; */
+        object-fit: contain;
+    }
+}
+@media (max-width: 425px){
+    .logo {
+        font-size: 1rem;
+    }
+    .profile img{
+        width: 30px;
+        height: 30px;
+    }
+    .home-text{
+        padding-bottom: 17rem;
+    }
+    .home-text span{
+        font-size: 0.8rem;
+    }
+    .home-text h1{
+        font-size: 1.4rem;
+    }
+    .heading {
+        display: flex;
+        /* flex-direction: column; */
+        text-align: center;
+    }
+    /* .heading .btn { */
+        /* margin-top: 1rem; */
+    /* } */
+    .categories-container{
+        gap: 1.5rem;
+    }
+}
+
