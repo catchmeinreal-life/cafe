@@ -1,9 +1,3 @@
-/**
- * sql query
- * check if the email is available
- * 
-*/
-
 document.addEventListener("DOMContentLoaded", ()=>{
     const signupForm = document.getElementById("loginForm");
 

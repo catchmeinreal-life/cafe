@@ -22,10 +22,17 @@ router.post('/sign-up', userMiddleware.validateRegister, async (req, res) => {
     const { username, email, password } = req.body;
 
     try {
-        // Check if user exists
+        /**check for existing user by the entered data (email 0r username)
+         * if there exist then res.status(409).json({message : "user is available"})
+         * user not in database then proceed.
+         * 
+         * hash the password
+         * the userId = uuidv4();
+         * then insert the user in the database
+         */
         const [existingUsers] = await conn.query(
-            `SELECT user_id FROM users WHERE LOWER(username) = LOWER(?)`,
-            [username]
+            `SELECT user_id FROM users WHERE LOWER(username) = LOWER(?) OR email = ?`,
+            [username, email]
         );
 
         if (existingUsers.length > 0) {
@@ -43,6 +50,7 @@ router.post('/sign-up', userMiddleware.validateRegister, async (req, res) => {
         );
 
         console.log(`User ${username} was added`);
+        /**response on success */
         res.status(201).json({ message: 'User added!' });
     } catch (err) {
         console.error(err);
