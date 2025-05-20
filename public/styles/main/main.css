@@ -10,6 +10,19 @@
     scroll-padding-top: 2rem;
     scroll-behavior: smooth;
 }
+
+/* Custom scrolling behaviour
+the edges when scrolling
+*/
+::-webkit-scrollbar {  
+    width: 0.5rem;
+    background: var(--light-green-color);
+}
+::-webkit-scrollbar-thumb {  
+    width: 0.5rem;
+    background: var(--green-color);
+    border-radius: 5rem;
+}
 /* variables */
 :root {  /*main colors*/
     --green-color: #3cb815;
