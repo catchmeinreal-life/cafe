@@ -529,3 +529,9 @@ section{
 .footer-box form .bxs-envelope{
     color: var(--green-color);
 }
+
+/* copyright css */
+.copyright{
+    text-align: center;
+    padding: 20px;
+}
